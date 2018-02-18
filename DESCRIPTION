@@ -1,0 +1,35 @@
+Package: sslsaran
+Type: Package
+Title: Tools to Work with Certificate Transparency Logs
+Version: 0.1.0
+Date: 2018-02-18
+Authors@R: c(
+    person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+           comment = c(ORCID = "0000-0001-5670-2640"))
+  )
+Maintainer: Bob Rudis <bob@rud.is>
+Description: The 'IETF' 'RFC' 6962 (<https://tools.ietf.org/html/rfc6962>) 
+    describe experimental protocol for publicly logging
+    the existence of 'Transport Layer Security' ('TLS') certificates as they
+    are issued or observed, in a manner that allows anyone to audit
+    certificate authority ('CA') activity and notice the issuance of
+    suspect certificates as well as to audit the certificate logs themselves.
+    Functions are provided as a wrapper around the log server 'API'.
+URL: https://github.com/hrbrmstr/sslsaran
+BugReports: https://github.com/hrbrmstr/sslsaran/issues
+Encoding: UTF-8
+License: AGPL
+Suggests:
+    testthat,
+    covr
+Depends:
+    R (>= 3.2.0)
+Imports:
+    purrr,
+    httr,
+    jsonlite,
+    openssl,
+    anytime,
+    pack,
+    tibble
+RoxygenNote: 6.0.1.9000

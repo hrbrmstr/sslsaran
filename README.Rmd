@@ -1,0 +1,87 @@
+---
+output: rmarkdown::github_document
+---
+
+# sslsaran
+
+Tools to Work with Certificate Transparency Logs
+
+## Description
+
+The 'IETF' 'RFC' 6962 (<https://tools.ietf.org/html/rfc6962>) describe
+experimental protocol for publicly logging the existence of 'Transport Layer
+Security' ('TLS') certificates as they are issued or observed, in a manner
+that allows anyone to audit certificate authority ('CA') activity and notice
+the issuance of suspect certificates as well as to audit the certificate logs
+themselves. Functions are provided as a wrapper around the log server 'API'.
+
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `get_entries`:	Retrieve Entries from Log
+- `get_sth`:	Retrieve Latest Signed Tree Head
+- `read_log_list`:	Retrieve Certificate Transparency Log List
+- `sslsaran`:	Tools to Work with Certificate Transparency Logs
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/sslsaran")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(sslsaran)
+library(tidyverse)
+
+# current verison
+packageVersion("sslsaran")
+
+# Get available log servers
+ll <- read_log_list()
+
+glimpse(ll$logs)
+
+glimpse(ll$operators)
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, cache=TRUE}
+# How many certs? (we'll use a different list for this since Chrome is picky)
+# NOTE: This usually takes a bit of time to run as some CT servers are slow 
+moar_logs <- read_log_list("https://www.gstatic.com/ct/log_list/all_logs_list.json")
+
+pull(moar_logs$logs, url) %>% 
+  map(get_sth) %>% 
+  map_dbl("tree_size") %>% 
+  sum(na.rm=TRUE) %>% 
+  scales::comma()
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+# Pick one from the google list
+ctl <- ll$logs$url[2]
+
+# Get picked latest signed tree head
+sth <- get_sth(ctl)
+
+# Get the last 30 entries
+x <- get_entries(ctl, sth$tree_size-30, sth$tree_size-1)
+
+# Take a look
+glimpse(x)
+
+map_chr(x$certificate, ~.x$issuer %||% NA) %>% 
+  discard(is.na)
+
+map_chr(x$certificate, ~.x$subject %||% NA) %>% 
+  discard(is.na)
+
+map(x$certificate, ~.x$alt_names %||% NA) %>% 
+  discard(~is.na(.x[1]))
+```
