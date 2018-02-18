@@ -9,7 +9,7 @@ Authors@R: c(
   )
 Maintainer: Bob Rudis <bob@rud.is>
 Description: The 'IETF' 'RFC' 6962 (<https://tools.ietf.org/html/rfc6962>) 
-    describe experimental protocol for publicly logging
+    describes an experimental protocol for publicly logging
     the existence of 'Transport Layer Security' ('TLS') certificates as they
     are issued or observed, in a manner that allows anyone to audit
     certificate authority ('CA') activity and notice the issuance of

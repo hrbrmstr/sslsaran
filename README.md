@@ -5,12 +5,12 @@ Tools to Work with Certificate Transparency Logs
 
 ## Description
 
-The ‘IETF’ ‘RFC’ 6962 (<https://tools.ietf.org/html/rfc6962>) describe
-experimental protocol for publicly logging the existence of ‘Transport
-Layer Security’ (‘TLS’) certificates as they are issued or observed, in
-a manner that allows anyone to audit certificate authority (‘CA’)
-activity and notice the issuance of suspect certificates as well as to
-audit the certificate logs themselves. Functions are provided as a
+The ‘IETF’ ‘RFC’ 6962 (<https://tools.ietf.org/html/rfc6962>) describes
+an experimental protocol for publicly logging the existence of
+‘Transport Layer Security’ (‘TLS’) certificates as they are issued or
+observed, in a manner that allows anyone to audit certificate authority
+(‘CA’) activity and notice the issuance of suspect certificates as well
+as to audit the certificate logs themselves. Functions are provided as a
 wrapper around the log server ‘API’.
 
 ## What’s Inside The Tin
