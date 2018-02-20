@@ -19,7 +19,8 @@ list, data frame or character vector depending on \code{as}
 Parse X.509/X.500 Attribute Strings into a Named List
 }
 \examples{
-parse_x509_attributes(
-  "CN=Sample Cert, OU=R&D, O=Company Ltd., L=Dublin 4, S=Dublin, C=IE"
-)
+x5_attr <- "CN=Sample Cert, OU=R&D, O=Company Ltd., L=Dublin 4, S=Dublin, C=IE"
+parse_x509_attributes(x5_attr)
+parse_x509_attributes(x5_attr, "df")
+parse_x509_attributes(x5_attr, "char")
 }
