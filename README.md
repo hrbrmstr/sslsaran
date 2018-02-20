@@ -1,7 +1,8 @@
 
 # sslsaran
 
-Tools to Work with Certificate Transparency Logs
+Tools to Work with Certificate Transparency (‘CT’) Logs and Various ‘CT’
+‘APIs’
 
 ## Description
 
@@ -11,16 +12,29 @@ an experimental protocol for publicly logging the existence of
 observed, in a manner that allows anyone to audit certificate authority
 (‘CA’) activity and notice the issuance of suspect certificates as well
 as to audit the certificate logs themselves. Functions are provided as a
-wrapper around the log server ‘API’.
+wrapper around the log server ‘API’. Tools are also provided to
+interface with other ‘Certificate Transparency’ ‘APIs’ including
+‘sslmate’ <https://sslmate.com/certspotter/api>, ‘Symantec’
+<https://cryptoreport.websecurity.symantec.com/checker/views/ctsearch.jsp>,
+Google, and others.
 
 ## What’s Inside The Tin
 
 The following functions are implemented:
 
+  - `cs_get_cert`: Get Certificate Object
+  - `cs_list_certs`: List Certificates
   - `get_entries`: Retrieve Entries from Log
   - `get_sth`: Retrieve Latest Signed Tree Head
+  - `parse_x509_attributes`: Parse X.509/X.500 Attribute Strings into a
+    Named List
   - `read_log_list`: Retrieve Certificate Transparency Log List
-  - `sslsaran`: Tools to Work with Certificate Transparency Logs
+  - `sym_ct_search`: Search Certificate Transparency Logs via Symatec
+    CryptoReport
+  - `tr_log_summary`: Retrieve Certificate Transparency Log Server
+    Summaries from the Google Transparency Report Project
+  - `tr_report`: Query Google’s Transparency Repoirt for Certificate
+    Information
 
 ## Installation
 

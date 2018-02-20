@@ -1,6 +1,6 @@
 Package: sslsaran
 Type: Package
-Title: Tools to Work with Certificate Transparency Logs
+Title: Tools to Work with Certificate Transparency ('CT') Logs and Various 'CT' 'APIs'
 Version: 0.1.0
 Date: 2018-02-18
 Authors@R: c(
@@ -15,6 +15,10 @@ Description: The 'IETF' 'RFC' 6962 (<https://tools.ietf.org/html/rfc6962>)
     certificate authority ('CA') activity and notice the issuance of
     suspect certificates as well as to audit the certificate logs themselves.
     Functions are provided as a wrapper around the log server 'API'.
+    Tools are also provided to interface with other 'Certificate Transparency'
+    'APIs' including 'sslmate' <https://sslmate.com/certspotter/api>, 
+    'Symantec' <https://cryptoreport.websecurity.symantec.com/checker/views/ctsearch.jsp>,
+    Google, and others.
 URL: https://github.com/hrbrmstr/sslsaran
 BugReports: https://github.com/hrbrmstr/sslsaran/issues
 Encoding: UTF-8
@@ -28,6 +32,7 @@ Imports:
     purrr,
     httr,
     jsonlite,
+    stringi,
     openssl,
     anytime,
     pack,

@@ -4,14 +4,18 @@
 \name{sslsaran}
 \alias{sslsaran}
 \alias{sslsaran-package}
-\title{Tools to Work with Certificate Transparency Logs}
+\title{Tools to Work with Certificate Transparency ('CT') Logs and Various 'CT' 'APIs'}
 \description{
-The 'IETF' 'RFC' 6962 (\url{https://tools.ietf.org/html/rfc6962}) describe
+The 'IETF' 'RFC' 6962 (\url{https://tools.ietf.org/html/rfc6962}) describes an
 experimental protocol for publicly logging the existence of 'Transport Layer
 Security' ('TLS') certificates as they are issued or observed, in a manner
 that allows anyone to audit certificate authority ('CA') activity and notice
 the issuance of suspect certificates as well as to audit the certificate logs
 themselves. Functions are provided as a wrapper around the log server 'API'.
+Tools are also provided to interface with other 'Certificate Transparency'
+APIs' including 'sslmate' \url{https://sslmate.com/certspotter/api},
+'Symantec' \url{https://cryptoreport.websecurity.symantec.com/checker/views/ctsearch.jsp},
+Google, and others.
 }
 \author{
 Bob Rudis (bob@rud.is)
